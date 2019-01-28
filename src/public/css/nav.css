@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background: #fa786d;
+  margin-bottom: 10px;
+}
+
+nav > .nav-item {
+  align-items: center;
+  padding: 0 10px;
+  color: black;
+  text-decoration: none;
+}
+
+nav > .nav-item.end-left {
+  margin-right: auto;
+}

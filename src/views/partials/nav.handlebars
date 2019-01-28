@@ -1,0 +1,12 @@
+
+<link rel="stylesheet" href="icons/jibagawesus.css">
+<link rel="stylesheet" href="css/nav.css">
+
+<nav>
+  <a class="nav-item end-left" href="/"><i class="icon-brush"></i></a>
+  {{#if user}}
+    <a class="nav-item" href="/profile">{{user.email}}</a>
+  {{else}}
+    <a class="nav-item" href="/login">Login</a>
+  {{/if}}
+</nav>
