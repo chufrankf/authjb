@@ -2,14 +2,14 @@ nav {
   display: flex;
   align-items: center;
   height: 40px;
-  background: #fa786d;
+  background: #500000;
   margin-bottom: 10px;
 }
 
 nav > .nav-item {
   align-items: center;
   padding: 0 10px;
-  color: black;
+  color: #FFFFFF;
   text-decoration: none;
 }
 

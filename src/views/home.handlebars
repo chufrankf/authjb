@@ -1,7 +1,24 @@
 <link rel="stylesheet" href="css/card.css">
 
-<div class="card-container">
-  <div class="card">
-    Hello!
+
+<div class="cards-list">
+{{#each projects}}
+  <div class="card-container">
+    <a class="card" href={{this.link}}>
+      <div class="card-icon">
+        {{#if this.image}}
+          <img class="card-icon-img" src={{this.image}}>
+        {{else}}
+          <img class="card-icon-img" src="imgs/server-icon-24.jpg">
+        {{/if}}
+      </div>
+      <h2 class="card-title">{{this.title}}</h2>
+      <div class="card-body">{{this.description}}</div>
+    </a>
+    <a class="github-footer" href={{this.github}} target="_blank">
+      <i class="icon-github"></i>
+      <span>Github</span>
+    </a>
   </div>
+{{/each}}
 </div>

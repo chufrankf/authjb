@@ -1,12 +1,14 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
 <defs>
 <font id="jibagawesus" horiz-adv-x="1000" >
 <font-face font-family="jibagawesus" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
-<glyph glyph-name="brush" unicode="&#xe800;" d="M464 202q0-124-87-212t-210-87q-81 0-149 40 68 39 109 108t40 151q0 61 44 105t105 44 105-44 43-105z m415 562q32-32 32-79t-33-79l-318-318q-20 55-61 97t-97 62l318 318q32 32 79 32t80-33z" horiz-adv-x="928" />
+<glyph glyph-name="github" unicode="&#xf055;" d="M0 305q0-117 35-187 38-74 117-109 80-38 163-47 75-9 162-9 38 0 94 3 48 3 101 13t92 26q44 19 81 50t58 73q34 70 34 187 0 134-77 224 16 45 16 95 0 66-29 123-58 0-103-21t-109-69q-76 18-158 18-89 0-173-20-64 51-110 71t-104 21q-28-57-28-123 0-50 15-96-77-90-77-223z m126-99q0 70 40 116t104 46q26 0 110-12 43-6 89-6t88 6q86 12 110 12 65 0 105-46t39-116q0-49-18-87-18-36-45-57t-69-34q-69-21-163-21h-95q-46 0-84 5-40 3-80 17t-67 33q-29 22-46 60t-18 84z m90 0q0-23 8-46 7-25 25-44t39-18q24 0 41 19 31 36 31 89 0 23-6 46-7 26-25 44t-41 18q-23 0-41-19-31-34-31-89z m361 0q0-23 7-46 8-25 25-44t40-18q24 0 41 19 31 36 31 89 0 21-7 46-7 26-25 44t-40 18q-24 0-40-19-32-34-32-89z" horiz-adv-x="937.5" />
+
+<glyph glyph-name="brush" unicode="&#xf1fc;" d="M901 850q39 0 69-26t29-65q0-35-25-84-185-351-260-420-54-51-121-51-71 0-121 52t-51 123q0 71 52 118l356 323q33 30 72 30z m-507-577q22-42 59-73t84-42l1-40q2-118-72-193t-195-75q-68 0-121 26t-85 71-49 102-16 123q4-3 23-17t35-25 32-20 26-9q23 0 31 20 14 37 32 63t39 42 49 27 57 14 70 6z" horiz-adv-x="1000" />
 </font>
 </defs>
 </svg>

@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'jibagawesus';
-  src: url('../font/jibagawesus.eot?22491350');
-  src: url('../font/jibagawesus.eot?22491350#iefix') format('embedded-opentype'),
-       url('../font/jibagawesus.woff2?22491350') format('woff2'),
-       url('../font/jibagawesus.woff?22491350') format('woff'),
-       url('../font/jibagawesus.ttf?22491350') format('truetype'),
-       url('../font/jibagawesus.svg?22491350#jibagawesus') format('svg');
+  src: url('../font/jibagawesus.eot?96814178');
+  src: url('../font/jibagawesus.eot?96814178#iefix') format('embedded-opentype'),
+       url('../font/jibagawesus.woff2?96814178') format('woff2'),
+       url('../font/jibagawesus.woff?96814178') format('woff'),
+       url('../font/jibagawesus.ttf?96814178') format('truetype'),
+       url('../font/jibagawesus.svg?96814178#jibagawesus') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'jibagawesus';
-    src: url('../font/jibagawesus.svg?22491350#jibagawesus') format('svg');
+    src: url('../font/jibagawesus.svg?96814178#jibagawesus') format('svg');
   }
 }
 */
@@ -55,4 +55,5 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-brush:before { content: '\e800'; } /* '' */
+.icon-github:before { content: '\f055'; } /* '' */
+.icon-brush:before { content: '\f1fc'; } /* '' */
