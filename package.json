@@ -5,8 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon --inspect src/server.js --exec babel-node",
-    "build": "babel src -d dist",
-    "serve": "node dist/src.js"
+    "build": "babel src --out-dir dist --copy-files",
+    "serve": "node dist/server.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",

@@ -18,11 +18,8 @@ export default {
       dialect: 'mysql'
     },
     production: {
-      username: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: 'myapi_prod',
-      host: 'localhost',
-      dialect: 'mysql'
+      url: process.env.JAWSDB_URL,
+      dialetc: 'mysql'
     }
   },
   clients: [
@@ -31,7 +28,7 @@ export default {
       secret: process.env.JIBAGA_SECRET
     }
   ],
-  port: 9000,
+  port: process.env.PORT || 9000,
   sessionSecret: process.env.SESSION_SECRET,
   env: process.env.NODE_ENV || 'development'
 };

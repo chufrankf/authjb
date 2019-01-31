@@ -12,11 +12,17 @@ const databaseOptions = {
 };
 
 // Create new database connection
-let connection = new Sequelize(
-  databaseConfigEnv.database,  
-  databaseConfigEnv.username, 
-  databaseConfigEnv.password, 
-  databaseOptions);
+var connection;
+
+if( databaseConfigEnv.url ) {
+  connection = new Sequelize(databaseConfigEnv.url);
+} else {
+  connection  = new Sequelize(
+    databaseConfigEnv.database,  
+    databaseConfigEnv.username, 
+    databaseConfigEnv.password, 
+    databaseOptions);
+}
 
 // Test connection
 console.info('SETUP|Connecting database...');
