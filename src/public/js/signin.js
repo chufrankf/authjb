@@ -38,7 +38,7 @@ signinForm.addEventListener('submit', function(event) {
       AuthRequests.login(body, (error, result, log) => { processResult(error, result, log); });
       break;
     case '/signup':
-      if( signupForm.password.value != signupForm.confirm.value ) {
+      if( signinForm.password.value != signinForm.confirm.value ) {
         errorText.innerHTML = "Passwords do not match";
       } else {
         AuthRequests.signup(body, (error, result, log) => { processResult(error, result, log); });
