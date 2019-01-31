@@ -19,7 +19,7 @@ export default {
     },
     production: {
       url: process.env.JAWSDB_URL,
-      dialetc: 'mysql'
+      dialect: 'mysql'
     }
   },
   clients: [
