@@ -11,11 +11,11 @@ var AuthRequests = {
       body: JSON.stringify(body)
     }).then(FetchHelpers.status)
       .then(FetchHelpers.json)
+      .then(FetchHelpers.errorHandler)
       .then( function(res) {
         callback( null, res.result, res.log );
       })
       .catch( function(msg) {
-        console.log('UI Error: ' + msg);
         callback( msg );
       });
   },
@@ -30,6 +30,7 @@ var AuthRequests = {
       body: JSON.stringify(body)
     }).then(FetchHelpers.status)
       .then(FetchHelpers.json)
+      .then(FetchHelpers.errorHandler)
       .then( function(res) {
         callback( null, res.result, res.log );
       })

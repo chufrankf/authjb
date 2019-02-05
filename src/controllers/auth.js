@@ -4,8 +4,8 @@ import bcrypt from 'bcryptjs';
 
 // User has already had their email and password auth'd
 // We just need to give them a token
-exports.getToken = function(user, secret) {
-  return { token: jwt.sign(user, secret, { expiresIn: '30m' }), user: user };
+exports.getToken = function(user, secret, duration) {
+  return { token: jwt.sign(user, secret, { expiresIn: duration || '30m' }), user: user };
 };
 
 /*
@@ -29,10 +29,10 @@ exports.signIn = function (body, callback) {
         delete userOut['password'];
         return callback(null, userOut );
       } else {
-        return callback(null, null, { message: 'Unable to login. Invalid password' });
+        return callback({ message: 'Unable to login. Invalid password' }, null );
       }
     } else {
-      return callback(null, null, { message: 'Unable to login. Cannot find email'} );
+      return callback({ message: 'Unable to login. Cannot find email'}, null );
     }
   }).catch( (error) => {
     return callback(error, null);

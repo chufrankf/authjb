@@ -7,9 +7,11 @@ var FetchHelpers = {
     }
   },
   json: function(response) {
-    var res = response.json();
+    return response.json();
+  },
+  errorHandler: function(res) {
     if(res.error) {
-      return Promise.reject(new Error(res.error.message || res.error.name));
+      return Promise.reject(new Error(res.error.message || res.error.name || 'Unhandled error message'));
     } else {
       return res;
     }

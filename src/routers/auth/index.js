@@ -1,7 +1,7 @@
 import passport from 'passport';
 import { getToken } from '../../controllers/auth';
 import { findOne as findClient } from '../../controllers/clients';
-import { handleCallbackAsJson } from '../handlers';
+import { handleCallbackAsJson, handleErrorAsJson } from '../handlers';
 
 export default function(app) {
 
@@ -20,12 +20,12 @@ export default function(app) {
   // action: log the user in, when a client Id exists, 
   //         get the token off the clientSecret. Otherwise just login in
   // results: returns the login token or an error
-  app.post('/api/auth/local/login', passport.authenticate('local-login'), (req, res) => {
+  app.post('/api/auth/local/login', passport.authenticate('local-login', { failWithError: true }), (req, res) => {
     const client = findClient(req.body.clientId);
     var result = client ? getToken(req.user, client.secret) : req.user ;
     var message = req.user ? 'Login successful' : 'Login failed';
     handleCallbackAsJson( null, result, message, res);
-  });
+  }, handleErrorAsJson );
   
   // localhost:9000/api/local/signup POST
   // input: body {
@@ -36,12 +36,12 @@ export default function(app) {
   // action: Adds the user to the database, when the clientId eists, 
   //         get the token off the clientSecret. Otherwise just login in
   // results: Returns the login token or an error, 
-  app.post('/api/auth/local/signup', passport.authenticate('local-signup'), (req, res) => {
+  app.post('/api/auth/local/signup', passport.authenticate('local-signup', { failWithError: true }), (req, res) => {
     const client = findClient(req.body.clientId);
     var result = client ? getToken(req.user, client.secret) : req.user ;
     var message = req.user ? 'Signup successful' : 'Signup failed';
     handleCallbackAsJson( null, result, message, res);
-  });
+  }, handleErrorAsJson );
 
   // localhost:9000/api/logout POST
   // action: destroys the current session
@@ -53,10 +53,14 @@ export default function(app) {
   });
 
   // localhost:9000/api/auth/token GET
+  // body: {
+  //   clientId: !String
+  //   duration: String (1m, 1h, 1d, defaults to 30m)
+  // }
   // action: get the current user token if based off the client Id
   app.get('/api/auth/token', (req, res) => {
     const client = findClient(req.body.clientId);
-    var result = req.user && client ? getToken(req.user, client.secret) : null ;
+    var result = req.user && client ? getToken(req.user, client.secret, req.body.duration) : null ;
     var message = req.user ? ( result ? null : 'No clientId given' ) : 'User is not logged in' ;
     handleCallbackAsJson( null, result, message, res);
   });

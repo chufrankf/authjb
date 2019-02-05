@@ -22,3 +22,20 @@ exports.handleCallbackAsJson = (error, result, message, res) => {
 
   return res.json(output);
 };
+
+exports.handleErrorAsJson = (error, req, res, next) => {
+  var output = {};
+  
+  if( res.headersSent ) {
+    return next(error);
+  }
+
+  if( error.name || error.message ) {
+    output.error = { name: error.name, message: error.message };
+    res.json(output);
+  }
+  else {
+    output.error = { message: 'An unhandled error occurred. Please ask an administrator for assistance.' };
+    res.status(400).json(output);
+  }
+};
