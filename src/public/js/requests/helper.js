@@ -37,7 +37,7 @@ var Url = {
   getParams: function(url) {
     var vars = {};
     var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
-      vars[key] = value;
+      vars[key] = decodeURIComponent(value);
     });
     return vars;
   }
