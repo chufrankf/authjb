@@ -7,7 +7,20 @@ import config from '../config';
 
 export default function(app) {
 
-  app.use(session({ secret: config.sessionSecret, resave: true, saveUninitialized:true}));
+  var sessionConfig = { 
+    secret: config.sessionSecret, 
+    resave: true, 
+    saveUninitialized: false,
+    name: 'authjb.sid',
+    cookie: {}
+  };
+
+  if ( config.envSecure === 'https' ) {
+    app.set('trust proxy', 1);
+    sessionConfig.cookie.secure = true;
+  }
+
+  app.use(session(sessionConfig));
   app.use(passport.initialize());
   app.use(passport.session());
 

@@ -1,10 +1,11 @@
 const signinForm = document.getElementById('signin-form');
 const errorText = document.getElementById('signin-error');
+const switchLink = document.getElementById('switch-link');
 
 const path = window.location.pathname;
 const params = Url.getParams(window.location.href);
 const callbackUrl = params['redirect'];
-const clientId = params['clientID'];
+const clientId = params['clientId'];
 
 function processResult(error, result, log){
   if( error ) {
@@ -30,7 +31,7 @@ signinForm.addEventListener('submit', function(event) {
   };
 
   if( clientId ) {
-    body['clientId'] = clientID;
+    body['clientId'] = clientId;
   }
 
   switch( path ) {
@@ -47,4 +48,9 @@ signinForm.addEventListener('submit', function(event) {
     default:
       errorText.innerHTML = "Path is invalid";
   }
+});
+
+switchLink.addEventListener('click', function(event) {
+  event.preventDefault();
+  window.location.href = Url.build(switchLink.href, params);
 });

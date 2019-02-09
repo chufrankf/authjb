@@ -32,7 +32,7 @@ var Url = {
     for (let p in params) {
       paramList.push(encodeURIComponent(p) + '=' + encodeURIComponent(params[p]));
     }
-    return base + '?' + paramList.join('&');
+    return paramList.length > 0 ? base + '?' + paramList.join('&') : base;
   },
   getParams: function(url) {
     var vars = {};

@@ -30,5 +30,6 @@ export default {
   ],
   port: process.env.PORT || 9000,
   sessionSecret: process.env.SESSION_SECRET,
-  env: process.env.NODE_ENV || 'development'
+  env: process.env.NODE_ENV || 'development',
+  envSecure: process.env.ENV_SECURE || 'http'
 };

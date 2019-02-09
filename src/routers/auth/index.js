@@ -22,7 +22,7 @@ export default function(app) {
   // results: returns the login token or an error
   app.post('/api/auth/local/login', passport.authenticate('local-login', { failWithError: true }), (req, res) => {
     const client = findClient(req.body.clientId);
-    var result = client ? getToken(req.user, client.secret) : req.user ;
+    var result = client ? { token: getToken(req.user, client.secret), user: req.user } : req.user ;
     var message = req.user ? 'Login successful' : 'Login failed';
     handleCallbackAsJson( null, result, message, res);
   }, handleErrorAsJson );
@@ -38,7 +38,7 @@ export default function(app) {
   // results: Returns the login token or an error, 
   app.post('/api/auth/local/signup', passport.authenticate('local-signup', { failWithError: true }), (req, res) => {
     const client = findClient(req.body.clientId);
-    var result = client ? getToken(req.user, client.secret) : req.user ;
+    var result = client ? { token: getToken(req.user, client.secret), user: req.user } : req.user ;
     var message = req.user ? 'Signup successful' : 'Signup failed';
     handleCallbackAsJson( null, result, message, res);
   }, handleErrorAsJson );
@@ -60,7 +60,7 @@ export default function(app) {
   // action: get the current user token if based off the client Id
   app.get('/api/auth/token', (req, res) => {
     const client = findClient(req.body.clientId);
-    var result = req.user && client ? getToken(req.user, client.secret, req.body.duration) : null ;
+    var result = req.user && client ? { token: getToken(req.user, client.secret, req.body.duration), user: req.user } : null ;
     var message = req.user ? ( result ? null : 'No clientId given' ) : 'User is not logged in' ;
     handleCallbackAsJson( null, result, message, res);
   });
